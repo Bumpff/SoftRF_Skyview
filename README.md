@@ -1,6 +1,6 @@
 # SkyView WAGA Device (softRF)
 
-Note: I'm new to GitHub and C++ programming!
+Note: I'm new to GitHub and C++ programming so this may not meet normal standards!
 
 This project began in Feb 25 as a development of the SoftRF Skyview EZ display.
 
@@ -48,4 +48,12 @@ The tool can also be used to communicate with a PowerFlarm to read the settings 
 ![image](https://github.com/user-attachments/assets/ea01c7f1-da08-45b2-b3da-b61d17ab8e7b)
 
 ![image](https://github.com/user-attachments/assets/76bab752-06b3-40c1-adf4-580a1720d9e5)
+
+For discussions join the SoftRF Community.
+
+For additional info see also Lyusupov's repository   https://github.com/lyusupov/SoftRF/tree/master/software/firmware/source
+
+and 
+
+Moshes repository:   https://github.com/rvt/SoftRF-Moshe/tree/master/software/firmware/source
 
