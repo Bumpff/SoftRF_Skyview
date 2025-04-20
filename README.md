@@ -6,6 +6,8 @@ This project began in Feb 25 as a development of the SoftRF Skyview EZ display.
 
 The intent of the project is to develop a companion display device for the WAGA Flarm.  WAGA is the Western Australia Gliding Association.  The WAGA Flarm is a not for profit low cost genuine Atom PowerFlarm with ADSB using a bespoke PCB designed and assembled in Perth, Australia.  Approx 35 have been built for WAGA members for use in gliders and tugs.
 
+The code has been tested using PowerFlarm and a traffic simulator (details below).  It probably still works with SoftRF transceivers but I've not tested it and as its not relevant to this project, I wont be fixing any related issues.
+
 The starting point for this code was Moshe Braner's Fork revision M06b, which was based upon Linar Lyusupov revision 0.12.
 
 Additions and changes to MB06B include:
