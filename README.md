@@ -6,6 +6,8 @@ This project began in Feb 25 as a development of the SoftRF Skyview EZ display.
 
 The intent of the project is to develop a companion display device for the WAGA Flarm.  WAGA is the Western Australia Gliding Association.  The WAGA Flarm is a not for profit low cost genuine Atom PowerFlarm with ADSB using a bespoke PCB designed and assembled in Perth, Australia.  Approx 35 have been built for WAGA members for use in gliders and tugs.
 
+NOTE:  The SkyView hardware is a Lilygo T5S which is an ESP32 with WaveShare 2.7" e-paper screen.  The e-paper screen is probably the limiting factor for this project.  Firstly , the screen datasheet says it's not suitable for use in strong sunlight - but its cheap to replace.  Then there is an issue re speed of screen update.  The code uses 'fast update' for the screen which I have measured as taking approx 850ms. However, the 'next screen' buffer is not available for writing to during a 'fast' update.  So, the worst case is an alarm received just after an update has initiated - the alarm cannot be passed to the screen for 850ms, and then it will take another 850ms to update and become visible.
+
 The code has been tested using PowerFlarm and a traffic simulator (details below).  It probably still works with SoftRF transceivers but I've not tested it and as its not relevant to this project, I wont be fixing any related issues.
 
 The starting point for this code was Moshe Braner's Fork revision M06b, which was based upon Linar Lyusupov revision 0.12.
@@ -30,7 +32,7 @@ Additions and changes to MB06B include:
 12. Threat traffic has a line drawn to it from ThisAircraft.  Tugs have a single ring around the traffice icon. ADSB if detected has a double ring around the icon.
 13. Non-directional traffic, if detected using Source, is shown as a ring of dots. Voice states "Aware" instead of X o'clock.
 14. The delay between screen updates is set as 2000ms (as per MB06B).  However, Alarms are processed as priority when received and thus screen display is improved to
-    between 800-1600ms after alarm detection.  This delay is a characteristic of the e-paper screen.
+    between 850-1700ms after alarm detection.  This delay is a characteristic of the e-paper screen.
 16.  On startup:  If setting=Voice the voice 'post' jingle is suppressed.  If Setting=Buzzer, 2 buzzes are made.
 17.  On startup, if 'No data' is available, message shows what connection and baud rate is set.  If 'No Fix', message shows what type of data is being received (eg NMEA).
     This information previously was shown in the NavBoxes.
