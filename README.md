@@ -49,7 +49,7 @@ The tool can also be used to communicate with a PowerFlarm to read the settings 
 
 ![image](https://github.com/user-attachments/assets/88cc1f16-41d7-473b-bf7f-df6781b72471)
 
-![image](https://github.com/user-attachments/assets/5a0db638-e97e-4e83-b7f9-3eb48691c351)
+![image](https://github.com/user-attachments/assets/a5d38270-ffc8-4bcc-a441-61fc425fd417)
 
 For discussions join the SoftRF Community.
 
