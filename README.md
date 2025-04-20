@@ -41,13 +41,11 @@ Then directly from MS Access (using USB->RS232_TTL conversion), at the push of a
 The PowerFlarm built in sims are in the database.
 The tool can also be used to communicate with a PowerFlarm to read the settings and initiate the built-in sims. 
 
-![image](https://github.com/user-attachments/assets/1fffdee7-8316-4879-94eb-7f76a530750f)
+![image](https://github.com/user-attachments/assets/920bfb6a-bcc3-4713-baf4-8ca28727e1ed)
 
-![image](https://github.com/user-attachments/assets/cc4b385d-f22b-4fa8-9776-2aff10189efb)
+![image](https://github.com/user-attachments/assets/e5c43d24-cc3f-4b74-90f4-58a1ac087b0c)
 
-![image](https://github.com/user-attachments/assets/d080e4e0-be98-4a6c-b9bd-030a0b344de0)
+![image](https://github.com/user-attachments/assets/ea01c7f1-da08-45b2-b3da-b61d17ab8e7b)
 
-![image](https://github.com/user-attachments/assets/00375668-9db7-46d9-9b93-496ed2e365c4)
-
-
+![image](https://github.com/user-attachments/assets/76bab752-06b3-40c1-adf4-580a1720d9e5)
 
