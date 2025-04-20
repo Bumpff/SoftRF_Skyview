@@ -1,21 +1,47 @@
-# SoftRF_Skyview
+# SkyView WAGA Device (softRF)
 
-This repository is my C++ learning exercise and a work in progress.  Note - I'm very new to GitHub and C++ programming so my code may be messy.
+Note: I'm new to GitHub and C++ programming!
 
-Since I'm a sailplane pilot, my first project is exploring and tinkering with the SoftRF (originated by Lyusupov) Skyview EZ device.  
+This project began in Feb 25 as a development of the SoftRF Skyview EZ display.
 
-The starting point for this code was Moshe revision M06b which I think is based upon Lyusupov revision 0.12.  (Note Lyusupov revision 0.13 introduced a screen rotation selector which rotates 180 degrees but not landscape).
+The intent of the project is to develop a companion display device for the WAGA Flarm.  WAGA is the Western Australia Gliding Association.  The WAGA Flarm is a not for profit low cost genuine Atom PowerFlarm with ADSB using a bespoke PCB designed and assembled in Perth, Australia.  Approx 35 have been built for WAGA members for use in gliders and tugs.
 
-I have set myself the following goals:
-1.  Enable the radar and text screens to display in landscape view with a selector in the web interface.  Achieved, but needs tidy up.
-2.  Develop an additional screen with navigation information for tug retrieves.
+The starting point for this code was Moshe Fork revision M06b which was based upon Lyusupov revision 0.12.
 
-Landscape mode (battery text box is showing my trial data, not battery voltage or %)
+Additions and changes to MB06B include:
+======================================
+1.  Landscape screen layout added to increase installation flexibility.  Use the WebGUI to select landscape or portrait.  (Does not do 180 rotation like Linar v0.13)
+2.  NavBoxes in Radar_View amended to:  Threat, Traffic number, Vertical Distance and CompID (looked up from OGN database on SD card).
+3.  Nav_View mode added.  Provides basic navigation data to hardcoded Waypoints for use by tugs on aero retrieves. Same radar display
+  as RadarView.  NavBoxes are: Threat, Bearing to waypoint, Distance to waypoint and Ground Speed. Use WebGUI to select waypoint.
+4.  There is no battery level indicator because this device will be hardwired to power and data.  Code remains unchanged.
+5.  Additional fields added to NMEA parse: 'Notrack' and 'Source' (available from Flarm protocol 9 onwards). 'Source' distinguishes ADSB and mode-s traffic.
+6.  Added concept of 'Threat' where threat is the current highest Alarm Level or closest traffic if no alarms.
+7.  Threat NavBox1 shows Threat distance or Alarm Level. NavBox 4 shows Comp ID of Threat (the Hex code is visbible in small font).
+8.  Alarm 'lookout relative bearing indicator' added.  When a Level 1 Alarm is detected, a black triangle is shown just inside the scale ring showing the pilot where
+   to look for the Threat. If a Level 2 Alarm is detected, a triangle is added on the same arc as the black triangle but closer to the radar centre.
+  If a Level 3 Alarm is detected, a further triangle is added.  Note: all triangles indicate the direction to look for the traffic, not the the traffic location on
+  the radar.  Direction of lookout indicator is always relative to ThisAircraft heading, even when radar in North-Up mode.
+9. Revised WebGUI option regarding Voice.  Now 'Sound' options are:  Off, Voice or Buzzer.  Note the SkyView WAGA has a buzzer installed using GPIO Pin 10.
+10. Voice is Male voice for advisories "Traffic".  Female fast voice for alarms in ascending order are; "Alert", "Warning", Danger" with X 0'clock and above/below/level.
+11. Buzzer on occurs immediately an alarm is detected. Buzzer off and repeat interval is triggered by loop events so as not to add delays to the loop. Buzzer is irregular.
+12. Threat traffic has a line drawn to it from ThisAircraft.  Tigs have a single ring around the traffice icon. ADSB if detected has a double ring around the icon.
+13. Non-directional traffic, if detected uing Source, is shown as a ring of dots. Voice states "AWare" instead of X o'clock.
+14. The delay between screen updates is set as 2000ms (as per MB06B).  However, Alarms are processed as priority and screen display is between 800-1600ms
+    after alarm detection - this delay is a characteristic of the e-paper screen.
+15.  On startup:  If setting=Voice the voice 'post' jingle is suppressed.  If Setting=Buzzer, 2 buzzes are made.
+16.  On startup, if 'No data' is available, message shows what connection and baud rate is set.  If 'No Fix', message shows what type of data is being received (eg NMEA).
+17.  A user manual has been provided.
 
-![image](https://github.com/user-attachments/assets/a4a753e7-43a4-42fa-a0e6-0943931de673)
+I have also developed a tool using MS ACcess for creating and sending traffic simulations.  It's proven invaluable during testing.  It's a working tool, not a 'polished' programme!
+Simulations using PLAU and PFLAA sentences can be created and saved as data tables.
+GPS fix data can be inserted.  CheckSums calculated and concated to the Sentance.
+Then directly from MS Access (using USB->RS232_TTL conversion), at the push of a button, the sim is fed at the required input rate to the Skyview.
+I have recorded the PowerFlarm built in sims and these are in the database.
+The tool can also be used to communicate with a PowerFlarm to read the settings and initiate the built-in sims. 
 
-Original portrait mode and web tool Layout mode selector
-![image](https://github.com/user-attachments/assets/223a4d3d-10ca-4044-8ebc-eae91cbbf566)
+
+
 
 
 
