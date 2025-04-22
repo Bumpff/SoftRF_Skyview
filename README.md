@@ -61,5 +61,5 @@ For additional info see also Lyusupov's repository   https://github.com/lyusupov
 
 and 
 
-Moshes repository:   https://github.com/rvt/SoftRF-Moshe/tree/master/software/firmware/source
+Moshes repository:   https://github.com/moshe-braner/SoftRF
 
