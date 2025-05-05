@@ -29,7 +29,7 @@ Additions and changes to MB06B include:
 11. Voice is Male voice for advisories "Traffic".  Female fast voice for alarms in ascending order are; "Alert", "Warning", Danger" with X 0'clock and above/below/level.
 12. Buzzer on occurs immediately an alarm is detected. Buzzer off and repeat interval is triggered by loop events so as not to add delays to the loop. Buzzer is irregular.
 13. Threat traffic has a line drawn to it from ThisAircraft.  Tugs have a single ring around the traffice icon. ADSB if detected has a double ring around the icon.
-14. Non-directional traffic, if detected using Source, is shown as a ring of dots. Voice states "Aware" instead of X o'clock.
+14. Non-directional traffic, if detected using Source field in $PFLAA sentences, is shown as a ring of dots. Voice states "Aware" instead of X o'clock.
 15. The delay between screen updates is set as 2000ms (as per MB06B).  However, Alarms are processed as priority when received and thus screen display is improved to
     between 850-1700ms after alarm detection.  This delay is a characteristic of the e-paper screen.
 16.  On startup:  If setting=Voice the voice 'post' jingle is suppressed.  If Setting=Buzzer, 2 buzzes are made.
@@ -54,8 +54,10 @@ The tool can also be used to communicate with a PowerFlarm to read the settings 
 
 ![image](https://github.com/user-attachments/assets/a5d38270-ffc8-4bcc-a441-61fc425fd417)
 
-There are some Utube videos here:
-
+There are Utube videos showing some of the features here:
+www.youtube.com/watch?v=6XAo3VZiTSU
+www.youtube.com/watch?v=aKL4Eq96BqY
+www.youtube.com/watch?v=15VMMSYqtp0
 
 For discussions join the SoftRF Community.
 
