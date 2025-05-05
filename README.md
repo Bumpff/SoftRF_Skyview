@@ -8,7 +8,7 @@ NOTE:  The SkyView hardware is a Lilygo T5S which is an ESP32 with WaveShare 2.7
 
 The code has been primarily tested using PowerFlarm and a traffic simulator (details below). 
 
-The original UDP and BT_LE taffic data connections appear to work from SoftRF transceivers.  Traffic data input with the USB socket as the connection dos not work because it did not work in MB06B and Linar only fixed that in his V0.13.  I have not tested the bridge functionality.  SoftRF compatibility is not relevant to the WAGA project, so I wont be fixing any related issues.
+The original UDP and BT_LE taffic data connections appear to work from SoftRF transceivers.  Traffic data input with the USB socket as the connection does not work because it did not work in MB06B and Linar only fixed that in his V0.13.  I have not tested the bridge functionality.  SoftRF compatibility is not relevant to the WAGA project, so I wont be fixing any related issues.
 
 Additions and changes to MB06B include:
 ======================================
