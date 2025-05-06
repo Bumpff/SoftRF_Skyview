@@ -4,11 +4,14 @@ This project began in Feb 25 as a development of the SoftRF Skyview EZ display. 
 
 The intent of the project is to develop a companion display device for the WAGA Flarm.  WAGA is the Western Australia Gliding Association.  The WAGA Flarm is a not for profit low cost genuine Atom PowerFlarm with ADSB using a bespoke PCB designed and assembled in Perth, Australia.  Approx 35 have been built for WAGA members for use in gliders and tugs.
 
-NOTE:  The SkyView hardware is a Lilygo T5S which is an ESP32 with WaveShare 2.7" e-paper screen.  The e-paper screen is probably the limiting factor for this project.  Firstly , the screen datasheet says it's not suitable for use in strong sunlight - but its cheap to replace.  Then there is an issue re speed of screen update.  The code uses 'fast update' for the screen which I have measured as taking approx 850ms. However, the 'next screen' buffer is not available for writing to during a 'fast' update.  So, the worst case is an alarm received just after an update has initiated - the alarm cannot be passed to the screen for 850ms, and then it will take another 850ms to update and become visible.
+NOTE:  The SkyView hardware is a Lilygo T5S which is an ESP32 with WaveShare 2.7" e-paper screen.  The e-paper screen is probably the limiting factor for this project.  Firstly , the screen datasheet says it's not suitable for use in strong sunlight - but its cheap to replace.  Then there is an issue regarding speed of screen update.  The code uses 'fast update' for the screen which I have measured as taking approx 850ms. However, the 'next screen' buffer is not available for writing to during a 'fast' update.  So, the worst case is an alarm received just after an update has initiated - the alarm cannot be passed to the screen for 850ms, and then it will take another 850ms to update and become visible.1.9Mb 
+
+The code sketch size is nearing the 1.9MB limit of the 'Minimun SPIFSS' partion scheme.  90% of the 1,966,080 bytes are used by version WAGA01.  There is code not relevant to the Lilygo T5S baord that culd possibly be deleted.
 
 The code has been primarily tested using PowerFlarm and a traffic simulator (details below). 
 
-The original UDP and BT_LE taffic data connections appear to work from SoftRF transceivers.  Traffic data input with the USB socket as the connection does not work because it did not work in MB06B and Linar only fixed that in his V0.13.  I have not tested the bridge functionality.  SoftRF compatibility is not relevant to the WAGA project, so I wont be fixing any related issues.
+The original UDP and BT_LE taffic data connections appear to work from SoftRF transceivers.  Traffic data input with the USB socket as the connection does not work because it did not work in MB06B and Linar only fixed that in his V0.13.  
+I have tested staisfactorily the bridge functionality with Wifi but I have not tested it with BT. SoftRF compatibility is not relevant to the WAGA project, so I wont be fixing any related issues.
 
 Additions and changes to MB06B include:
 ======================================
@@ -16,7 +19,7 @@ Additions and changes to MB06B include:
 2.  NavBoxes in Radar_View amended to:  Threat, Traffic number, Vertical Distance and CompID (looked up from OGN database on SD card).
 3.  Nav_View mode added.  Provides basic navigation data to hardcoded Waypoints for use by tugs on aero retrieves. Same radar display
   as RadarView.  NavBoxes are: Threat, Bearing to waypoint, Distance to waypoint and Ground Speed. Use WebGUI to select waypoint.
-4.  There is no battery level indicator because this device will be hardwired to power and data.  Code remains unchanged.
+4.  There is no battery level indicator because this device will be hardwired to power and data.  Battery code remains present and unchanged, so could be reactivated.
 5.  Additional fields added to NMEA parse: 'Notrack' and 'Source' (available from Flarm protocol 9 onwards). 'Source' distinguishes ADSB and mode-s traffic.
 6.  Added concept of 'Threat' where threat is the current highest Alarm Level or closest traffic if no alarms.
 7.  NavBox1 shows Threat distance or Alarm Level. In small text it shows source of threat info.
