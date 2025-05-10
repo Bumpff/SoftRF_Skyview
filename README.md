@@ -45,7 +45,8 @@ Simulations using PLAU and PFLAA sentences can be created and saved by the devel
 GPS fix data can be inserted.  CheckSums calculated and concated to the Sentance.
 Then directly from MS Access (using USB->RS232_TTL conversion), at the push of a button, the sim is fed at the required input rate to the Skyview.
 The PowerFlarm built in sims are in the database.
-The tool can also be used to communicate with a PowerFlarm to read the settings and initiate the built-in sims. 
+The tool can also be used to communicate with a PowerFlarm to read the settings and initiate the built-in sims.
+
 Sim tool update 10 May 25. User interface allows setting of port number and baud rate. 
 Custom Sims panel has text box to enter ThisAircraft track for sims where Fix is added. This saves editing the GPS sentence.
 
