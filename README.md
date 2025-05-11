@@ -6,7 +6,7 @@ The intent of the project is to develop a companion display device for the WAGA 
 
 NOTE:  The SkyView hardware is a Lilygo T5S which is an ESP32 with WaveShare 2.7" e-paper screen.  The e-paper screen is probably the limiting factor for this project.  Firstly , the screen datasheet says it's not suitable for use in strong sunlight - but its cheap to replace.  Then there is an issue regarding speed of screen update.  The code uses 'fast update' for the screen which I have measured as taking approx 850ms. However, the 'next screen' buffer is not available for writing to during a 'fast' update.  So, the worst case is an alarm received just after an update has initiated - the alarm cannot be passed to the screen for 850ms, and then it will take another 850ms to update and become visible.1.9Mb 
 
-The code sketch size is nearing the 1.9MB limit of the 'Minimun SPIFSS' partition scheme.  90% of the 1,966,080 bytes are used by version WAGA01.  There is code not relevant to the Lilygo T5S board that could possibly be deleted.
+The code sketch size is nearing the 1.9MB limit of the 'Minimum SPIFSS' partition scheme.  90% of the 1,966,080 bytes are used by version WAGA01.  There is code not relevant to the Lilygo T5S board that could possibly be deleted.
 
 The code has been primarily tested using PowerFlarm and a traffic simulator (details below). 
 
